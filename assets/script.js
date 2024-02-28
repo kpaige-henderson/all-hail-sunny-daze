@@ -1,46 +1,40 @@
-var APIKey = '45e7389af4bf4883f905bc78e2fd18ee';
-var searchInput = $('.search-input')
-var searchBtn = $('.search-btn')
+$(document).ready(function () {
+    $('.search-btn').on('click', function () {
+        var cityName = $('.search-input').val(); 
+        var APIKey = '45e7389af4bf4883f905bc78e2fd18ee';
 
-function getApi(city) {
-    var apiURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey + '&units=imperial';
-    fetch(apiURL)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data)
+        function getApi(city) {
+            var apiURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIKey;
+            fetch(apiURL)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    console.log(data);
 
-            var dataName = data.name;
+                    var cityName = data.city.name;
 
-            saveToStorage(dataName);
-        
-         for (var i = 0; i <date.list.length; i += 8)  
-            var date = new Date(date.list[i].dt * 1000).toLocaleDateString()
-            var temperature = Math.round((data.list[i].main.temp - 279.15) * 9/5 + 32);
-            var description = data.list[i].weathe[0].description;
+                    // saveToStorage(cityName); 
 
-                $('.five-day-forecast-container').append('<div class="day-forecast">') +
-                '<p>Date: ' + date.toLocaleDateString() + '<p>' + 
-                '<p>Temperature: ' + temperature + '°F</p>' + 
-                '<p>Description: ' + description + '</p>' +
-                '</div>'
+                    for (var i = 0; i < data.list.length; i += 8) {
+                        var date = new Date(data.list[i].dt * 1000).toLocaleDateString();
+                        var temperature = Math.round((data.list[i].main.temp - 273.15) * 9/5 + 32);
+                        var description = data.list[i].weather[0].description;
 
-        });
-    };
-
-
-
-
-
-    searchBtn.on('click', function (event) {
-        var city = searchInput.val();
-        getApi(city);
-        searchInput.val('')
-    })
-
-    searchInput.on('keyup', function (event) {
-        if (event.keyCode === 13) {
-            getApi()
+                        $('.five-day-forecast-container').append('<div class="day-forecast">' +
+                            '<p>Date: ' + date + '</p>' +
+                            '<p>Temperature: ' + temperature + '°F</p>' +
+                            '<p>Description: ' + description + '</p>' +
+                            '</div>');
+                    }
+                })
+                .catch(function (error) {
+                    console.log("Error:", error);
+                    // Handle errors if needed
+                });
         }
-    })
+
+        getApi(cityName);
+    });
+});
+

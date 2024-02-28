@@ -1,0 +1,60 @@
+body {
+    font-family: arial, sans-serif;
+    background-color: rgb(191, 191, 248);
+    color: #333;
+
+}
+
+header {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 40px;
+    box-shadow: 0 4px 8px rgba(137, 136, 180, 0.727);
+
+}
+
+.left-column {
+    margin-top: 20px;
+
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+
+.search-input {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(137, 136, 180, 0.727);
+
+}
+
+.search-btn {
+    margin-left: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(137, 136, 180, 0.727);
+}
+
+.forecast {
+    padding: 20px;
+    background-color: #007bff9d;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(137, 136, 180, 0.727);
+
+}
+
+.five-day-forecast-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
