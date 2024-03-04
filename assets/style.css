@@ -9,7 +9,7 @@ header {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 40px;
     box-shadow: 0 4px 8px rgba(137, 136, 180, 0.727);
-
+    text-decoration-line: underline;
 }
 
 .left-column {
@@ -41,20 +41,22 @@ header {
     box-shadow: 0 4px 8px rgba(137, 136, 180, 0.727);
 }
 
-.forecast {
+
+.five-day-forecast-container {
     padding: 20px;
+    text-indent: 25px;
+    text-shadow: 0 4px 8px white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(137, 136, 180, 0.727);
+    line-height: 1.8;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 50px;
     background-color: #007bff9d;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(137, 136, 180, 0.727);
-
 }
 
-.five-day-forecast-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-}
